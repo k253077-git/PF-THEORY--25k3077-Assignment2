@@ -2,7 +2,7 @@
 #include<string.h>
 
 // add book
-void addbook(int isbns[], char titles[][50], float prices[], int quantities[], int *count){
+void addbook(int isbns[], char titles[][50], float prices[], int quantities[], int count){
     if(*count >= 100){
         printf("Full stock\n");
         return;
@@ -92,7 +92,7 @@ void report(int isbns[], char titles[][50], float prices[], int quantities[], in
         }
     }
     if(!found){
-        printf("All books have sufficient stock (5 or more)\n");
+        printf("All books have enough stock (5 or more)\n");
     }
 }
 
@@ -112,7 +112,8 @@ int main(){
         
         switch(ch){
             case 1:
-                addbook(isbns, titles, prices, quantities, &count);
+                addbook(isbns, titles, prices, quantities, count);
+                count++;
                 break;
             case 2:
                 process(isbns, titles, prices, quantities, count);
@@ -129,3 +130,4 @@ int main(){
     }
     return 0;
 }
+
